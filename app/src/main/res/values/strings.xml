@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">24001084-km6-akm-warungpenyet-ch2</string>
+    <string name="text_name">Hi Akmal! 👋</string>
+    <string name="text_greetings">Makan apa hari ini?</string>
+    <string name="text_desc_banner">Promo Bulan ramadan berkah, dapatkan diskon hingga 50%, mulai dari makanan, minuman, dan jajanan! </string>
+    <string name="title_desc">Diskon Cepat, Hanya Hari Ini!! </string>
 </resources>
