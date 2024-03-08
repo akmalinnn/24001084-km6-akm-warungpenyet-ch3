@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a24001084_km6_akm_warungpenyet_ch2.databinding.ItemCatalogBinding
 import com.example.a24001084_km6_akm_warungpenyet_ch2.model.Catalog
+import com.example.a24001084_km6_akm_warungpenyet_ch2.utils.toIndonesianFormat
 
 
 class CatalogAdapter : RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
@@ -34,7 +35,7 @@ class CatalogAdapter : RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() 
         fun bind(item: Catalog) {
             binding.tvCatalogName.text = item.name
             binding.ivCatalogImage.setImageResource(item.image)
-            binding.tvCatalogPrice.text = item.price.toString()
+            binding.tvCatalogPrice.text = item.price.toIndonesianFormat()
 
         }
     }
