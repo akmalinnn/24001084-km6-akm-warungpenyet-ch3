@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setListCategory()
+        setListCatalog()
+        setActionLogin()
     }
 
     private fun setListCategory() {
@@ -57,6 +59,11 @@ class MainActivity : AppCompatActivity() {
             adapter = this@MainActivity.adapterCatalog
         }
         adapterCatalog.submitData(data)
+    }
+    private fun setActionLogin() {
+        binding.layoutHeader.ivProfileMenu.setOnClickListener {
+            Toast.makeText(this@MainActivity, "Anda Sudah Masuk", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
