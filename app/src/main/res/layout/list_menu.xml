@@ -10,8 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_list_menu"
-        android:padding="4dp">
+        android:background="@drawable/bg_list_menu">
 
         <TextView
             android:id="@+id/tv_list_menu"
@@ -21,20 +20,20 @@
             android:ellipsize="end"
             android:text="@string/text_list_menu"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
+            android:maxLines="1"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_sort_menu"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_sort_menu"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/iv_sort_menu"
+            app:layout_constraintEnd_toStartOf="@+id/ib_sort_menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_sort_menu"
+        <ImageButton
+            android:id="@+id/ib_sort_menu"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="8dp"
-            android:src="@drawable/ic_sort_menu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

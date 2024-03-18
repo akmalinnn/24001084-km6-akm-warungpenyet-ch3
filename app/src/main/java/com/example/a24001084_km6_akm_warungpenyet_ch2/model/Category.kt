@@ -8,5 +8,4 @@ data class Category(
     @DrawableRes
     var image: Int,
     var name: String,
-
     )

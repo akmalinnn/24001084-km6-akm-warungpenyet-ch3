@@ -1,4 +1,4 @@
-package com.example.a24001084_km6_akm_warungpenyet_ch2.adapter
+package com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

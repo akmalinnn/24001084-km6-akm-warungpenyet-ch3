@@ -2,29 +2,37 @@ package com.example.a24001084_km6_akm_warungpenyet_ch2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.Toast
-import com.example.a24001084_km6_akm_warungpenyet_ch2.adapter.CatalogAdapter
-import com.example.a24001084_km6_akm_warungpenyet_ch2.adapter.CategoryAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.adapter.CategoryAdapter
 import com.example.a24001084_km6_akm_warungpenyet_ch2.databinding.ActivityMainBinding
+import com.example.a24001084_km6_akm_warungpenyet_ch2.datasource.CatalogDataSource
+import com.example.a24001084_km6_akm_warungpenyet_ch2.datasource.CatalogDataSourceImpl
+import com.example.a24001084_km6_akm_warungpenyet_ch2.detail.DetailActivity
 import com.example.a24001084_km6_akm_warungpenyet_ch2.model.Catalog
 import com.example.a24001084_km6_akm_warungpenyet_ch2.model.Category
+import com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.cataloglist.adapter.CatalogAdapter
+import com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.cataloglist.adapter.OnItemClickedListener
 
 class MainActivity : AppCompatActivity() {
-
-
+    private val adapterCategory = CategoryAdapter()
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+    private val dataSourceMenu: CatalogDataSource by lazy {
+        CatalogDataSourceImpl()
+    }
+    private var adapterCatalog:CatalogAdapter? = null
+    private var isUsingGridMode: Boolean = true
 
-    private val adapterCategory = CategoryAdapter()
-    private val adapterCatalog = CatalogAdapter()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setListCategory()
-        setListCatalog()
-        setActionLogin()
+        bindCatalogList(isUsingGridMode)
+        setClickActionMenu()
     }
 
     private fun setListCategory() {
@@ -40,30 +48,38 @@ class MainActivity : AppCompatActivity() {
         adapterCategory.submitData(data)
     }
 
-    private fun setListCatalog() {
-        val data = listOf(
-            Catalog(image = R.drawable.img_ayam, name = "Penyetan Ayam", price = 15000.0),
-            Catalog(
-                image = R.drawable.img_ayam_komplit,
-                name = "Penyetan komplit",
-                price = 20000.0
-            ),
-            Catalog(image = R.drawable.img_lele, name = "lele Goreng", price = 15000.0),
-            Catalog(image = R.drawable.img_belut, name = "Penyetan Belut", price = 17000.0),
-            Catalog(image = R.drawable.img_tahu_tempe, name = "Tahu Tempe", price = 12000.0),
-            Catalog(image = R.drawable.img_indomie, name = "Indomie Special", price = 8000.0),
-            Catalog(image = R.drawable.img_esteh, name = "Es teh Manis", price = 3000.0)
+    private fun setClickActionMenu() {
+        binding.listMenu.ibSortMenu.setOnClickListener {
+            isUsingGridMode = !isUsingGridMode
+            setButtonImage(isUsingGridMode)
+            bindCatalogList(isUsingGridMode)
+        }
+    }
 
+    private fun setButtonImage(isUsingGrid: Boolean) {
+        binding.listMenu.ibSortMenu.setImageResource(if (isUsingGrid) R.drawable.ic_menu else R.drawable.ic_sort_menu)
+    }
+
+    private fun bindCatalogList(isUsingGrid: Boolean) {
+        val listMode = if (isUsingGrid) CatalogAdapter.MODE_GRID else CatalogAdapter.MODE_LIST
+        adapterCatalog = CatalogAdapter(
+            listMode = listMode,
+            listener = object : OnItemClickedListener<Catalog> {
+                override fun onItemClicked(item: Catalog) {
+                    navigateToDetail(item)
+                }
+
+            }
         )
         binding.rvCatalog.apply {
             adapter = this@MainActivity.adapterCatalog
+            layoutManager = GridLayoutManager(this@MainActivity, if (isUsingGridMode) 2 else 1)
         }
-        adapterCatalog.submitData(data)
+        adapterCatalog?.submitData(dataSourceMenu.getCatalogItem())
     }
-    private fun setActionLogin() {
-        binding.layoutHeader.ivProfileMenu.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Anda Sudah Masuk", Toast.LENGTH_SHORT).show()
-        }
+
+    private fun navigateToDetail(item : Catalog) {
+        DetailActivity.startActivity(this,item)
     }
 
 }
