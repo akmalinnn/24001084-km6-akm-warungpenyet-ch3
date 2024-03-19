@@ -12,5 +12,8 @@ data class Catalog(
     var image: Int,
     var name: String,
     var price: Double,
+    var desc: String,
+    var location: String,
+    var locUrl: String
     ): Parcelable
 

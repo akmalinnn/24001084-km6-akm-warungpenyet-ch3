@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="list_menu" type="id" />
+    <item name="catalog_detail_cart" type="id" />
 </resources>
