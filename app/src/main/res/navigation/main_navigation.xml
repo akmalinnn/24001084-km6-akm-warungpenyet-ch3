@@ -2,22 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_navigation"
-    app:startDestination="@id/CatalogListFragment">
+    android:id="@+id/main_navigation">
 
-    <fragment
-        android:id="@+id/CatalogListFragment"
-        android:name="com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.cataloglist.CatalogListFragment"
-        android:label="fragment_avengers_list"
-        tools:layout="@layout/layout_catalog_list" >
-        <action
-            android:id="@+id/action_catalogListFragment_to_catalogDetailFragment"
-            app:destination="@id/CatalogDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/CatalogDetailFragment"
-        android:name="com.example.a24001084_km6_akm_warungpenyet_ch2.catalogdetail.CatalogDetail"
-        android:label="fragment_avenger_detail"
-        tools:layout="@layout/layout_catalog_detail" >
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/CatalogListFragment"-->
+<!--        android:name="com.example.a24001084_km6_akm_warungpenyet_ch2.presentation.cataloglist.CatalogListFragment"-->
+<!--        android:label="fragment_avengers_list"-->
+<!--        tools:layout="@layout/layout_catalog_list" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_catalogListFragment_to_catalogDetailFragment"-->
+<!--            app:destination="@id/CatalogDetailFragment" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/CatalogDetailFragment"-->
+<!--        android:name="com.example.a24001084_km6_akm_warungpenyet_ch2.catalogdetail.CatalogDetail"-->
+<!--        android:label="fragment_avenger_detail"-->
+<!--        tools:layout="@layout/layout_catalog_detail" >-->
+<!--    </fragment>-->
 </navigation>

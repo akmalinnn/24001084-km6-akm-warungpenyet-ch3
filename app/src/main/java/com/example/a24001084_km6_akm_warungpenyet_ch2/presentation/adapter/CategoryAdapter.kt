@@ -25,7 +25,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
         )
     }
 
-    //counting the data size
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {

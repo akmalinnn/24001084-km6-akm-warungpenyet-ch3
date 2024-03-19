@@ -24,12 +24,10 @@ class CatalogAdapter (
     private var asyncDataDiffer = AsyncListDiffer(
         this, object : DiffUtil.ItemCallback<Catalog>() {
             override fun areItemsTheSame(oldItem: Catalog, newItem: Catalog): Boolean {
-                //membandingkan apakah item tersebut sama
                 return oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(oldItem: Catalog, newItem: Catalog): Boolean {
-                // yang dibandingkan adalah kontennya
                 return oldItem.hashCode() == newItem.hashCode()
             }
 
