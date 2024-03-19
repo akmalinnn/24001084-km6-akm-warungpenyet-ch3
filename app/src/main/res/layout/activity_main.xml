@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/navigation_home"
+        android:id="@+id/home_nav"
         android:name="com.example.a24001084_km6_akm_warungpenyet_ch2.home.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

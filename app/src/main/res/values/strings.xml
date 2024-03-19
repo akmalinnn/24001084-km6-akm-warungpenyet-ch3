@@ -38,5 +38,7 @@
     <string name="catalog_desc">This description</string>
     <string name="checkout">Tambah Pesanan</string>
     <string name="_0">0</string>
+    <string name="add_value">+</string>
+    <string name="decrease_value">-</string>
 
 </resources>
